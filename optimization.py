@@ -45,6 +45,9 @@ def bisection(h, M, weights=[]):
     Vu = 1.1  # Communication overhead in task offloading
     epsilon = B / (Vu * np.log(2))
 
+
+    # parameters from the Smart
+
     x = []  # a = x[0], and tau_j = x[1:]
 
     # Map the index of M0 and M1 in M
@@ -216,5 +219,4 @@ if __name__ == "__main__":
         print('average time per channel:{:.3f}'.format(total_time / N))
         print("gain/max ratio: ", sum(gain_his_ratio) / N)
         plot_gain(gain_his_ratio)
-
 

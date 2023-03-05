@@ -79,7 +79,7 @@ if __name__ == "__main__":
     N = 10  # number of users
     n = 30000  # number of time frames
     K = 4  # initialize K = N
-    decoder_mode = 'KNN'  # the quantization mode could be 'OP' (Order-preserving) or 'KNN'
+    decoder_mode = 'OP'  # the quantization mode could be 'OP' (Order-preserving) or 'KNN'
     memory_size = 4096  # capacity of memory structure
     Delta = 32  # Update interval for adaptive K
     batch_size = 64
@@ -96,11 +96,13 @@ if __name__ == "__main__":
     channel = channel * 1000000
 
     # generate the train and test data sample index
-    # data are split as 80:20
+    # data are split as 80:209812236268805085+0
     # training data are randomly sampled with duplication if n > total data size
 
-    split_idx = int(.9 * len(channel))  # channel size: 30000*10
+    split_idx = int(.8 * len(channel))  # channel size: 30000*10
     num_test = len(channel) - split_idx
+
+    #initialize DNN
     mem = MemoryDNN(net=[N, 60, 40, N],
                     learning_rate=0.001,
                     training_interval=training_interval,
